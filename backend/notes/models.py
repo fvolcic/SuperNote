@@ -9,6 +9,7 @@ class Workspace(models.Model):
     wk_salt = models.TextField()
     iterations = models.IntegerField()
     write_token = models.CharField(max_length=128)
+    ai_key_enc = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -31,4 +32,3 @@ class Note(models.Model):
     position = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-

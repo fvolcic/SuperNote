@@ -17,6 +17,10 @@ export async function getWorkspace(id: string) {
   return http(`/api/workspaces/${id}/`)
 }
 
+export async function updateWorkspace(id: string, body: any, wt: string) {
+  return http(`/api/workspaces/${id}/`, { method:'PATCH', headers: { ...headers, Authorization: `Bearer ${wt}` }, body: JSON.stringify(body) })
+}
+
 export async function listProjects(workspaceId: string) {
   return http(`/api/projects/?workspace=${workspaceId}`)
 }

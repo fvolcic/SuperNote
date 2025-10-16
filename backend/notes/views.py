@@ -16,6 +16,7 @@ from .permissions import WriteTokenOrReadOnly
 
 class WorkspaceViewSet(mixins.CreateModelMixin,
                        mixins.RetrieveModelMixin,
+                       mixins.UpdateModelMixin,
                        viewsets.GenericViewSet):
     queryset = Workspace.objects.all()
     serializer_class = WorkspaceSerializer
@@ -54,4 +55,3 @@ class NoteViewSet(viewsets.ModelViewSet):
         if prj:
             qs = qs.filter(project_id=prj)
         return qs.order_by('position', 'created_at')
-
